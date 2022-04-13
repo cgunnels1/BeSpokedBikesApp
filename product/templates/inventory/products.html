@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        li {
+          float: left;
+        }
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+
+        li a:hover {
+          background-color: #111;
+        }
+       </style>
+</head>
+<body>
+
+<table>
+        <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Style</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Qty On Hand</th>
+            <th>Commission Percentage</th>
+        </tr>
+            {% for product in product_objects %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.manufacturer }}</td>
+                    <td>{{ product.style }}</td>
+                    <td>{{ product.purchase_price }}</td>
+                    <td>{{ product.sale_price }}</td>
+                    <td>{{ product.quantity_on_hand }}</td>
+                    <td>{{ product.commission_percentage }}</td>
+                    <td>
+                        <form action="{{ product..id }}/" method ="post">
+                            {% csrf_token %}
+                            <input type="submit" name="button" value="edit">
+                        </form>
+                    </td>
+                 </tr>
+            {% endfor %}
+    </table>
+
+
+
+
+
+</body>
+</html>
