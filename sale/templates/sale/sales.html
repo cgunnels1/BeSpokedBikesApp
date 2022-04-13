@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Staff Directory</title>
+    <title>Sales</title>
     <style>
         table {
           font-family: arial, sans-serif;
@@ -43,40 +43,26 @@
        </style>
 </head>
 <body>
-    <ul>
+<ul>
       <li><a class="active" href="/">Home</a></li>
     </ul>
+
 <table>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Start Date</th>
-            <th>Termination Date</th>
-            <th>Manager</th>
+            <th>Product</th>
+            <th>Salesperson</th>
+            <th>Customer</th>
+            <th>SalesDate</th>
         </tr>
-            {% for salesperson in salesperson_objects %}
+            {% for sale in sale_objects %}
                 <tr>
-                    <td>{{ salesperson.firstName }}</td>
-                    <td>{{ salesperson.lastName }}</td>
-                    <td>{{ salesperson.address }}</td>
-                    <td>{{ salesperson.phoneNumber }}</td>
-                    <td>{{ salesperson.startDate }}</td>
-                    <td>{{ salesperson.terminationDate }}</td>
-                    <td>{{ salesperson.manager }}</td>
-                    <td>
-                        <form action="{{ salesperson.id }}/" method ="post">
-                            {% csrf_token %}
-                            <input type="submit" name="button" value="edit">
-                        </form>
-                    </td>
+                    <td>{{ sale.product }}</td>
+                    <td>{{ sale.salesperson }}</td>
+                    <td>{{ sale.customer }}</td>
+                    <td>{{ sale.salesDate }}</td>
                  </tr>
             {% endfor %}
     </table>
-
-
-
 
 
 </body>

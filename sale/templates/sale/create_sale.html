@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customers</title>
+    <title>Create Sale</title>
     <style>
         table {
           font-family: arial, sans-serif;
@@ -46,24 +46,5 @@
 <ul>
       <li><a class="active" href="/">Home</a></li>
     </ul>
-<table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Start Date</th>
-        </tr>
-            {% for customer in customer_objects %}
-                <tr>
-                    <td>{{ customer.firstName }}</td>
-                    <td>{{ customer.lastName }}</td>
-                    <td>{{ customer.address }}</td>
-                    <td>{{ customer.phone }}</td>
-                    <td>{{ customer.startDate }}</td>
-                 </tr>
-            {% endfor %}
-    </table>
-
 </body>
 </html>

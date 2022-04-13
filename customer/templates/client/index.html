@@ -3,8 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <style>
+        .button {
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 25%;
+        }
+        h1 {
+          text-align: center;
+        }
+
+        .button1 {background-color: #16269F;} /* Blue */
+    </style>
 </head>
 <body>
+    <img src="media/images/BeSpoked_Bikes_Logo.jpg" alt="Logo" class="center">
+    <h1>BeSpoked Bikes</h1>
+    <form action="directory">
+        <button class="button button1">View Staff</button>
+    </form>
+    <form action="inventory">
+        <button class="button button1">View Inventory</button>
+    </form>
+    <form action="customers">
+        <button class="button button1">View past clients</button>
+    </form>
+    <form action="sales">
+        <button class="button button1">View Sales</button>
+    </form>
+    <form action="sales/create">
+        <button class="button button1">Create Sale</button>
+    </form>
+    <form action="directory/report">
+        <button class="button button1">View Quarterly Salesperson Commission Report</button>
+    </form>
+
 
 </body>
 </html>
