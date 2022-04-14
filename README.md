@@ -2,6 +2,8 @@
 ## Table of contents
 * [Built By](#built-by)
 * [General info](#general-info)
+* [Setup](#setup)
+* [Functionality](#functionality)
 
 ## Built By
 * Clay Gunnels
@@ -11,7 +13,7 @@
 * Due April 14, 2022 at 11 pm ET
 
 ## Setup
-* Project developed using Python, Django, HTML, css, javascript
+* Project developed using Python, Django, HTML, CSS
 * Once downloaded, move into BeSpokedBikesApp directory, run "python manage.py runserver"
 
 ## Functionality
