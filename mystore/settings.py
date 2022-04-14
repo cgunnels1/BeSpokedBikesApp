@@ -77,19 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mystore.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'be_spoked_bikes_db',
-#         'USER': 'root',
-#         'PASSWORD': 'CSCI4050',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
