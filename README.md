@@ -9,7 +9,7 @@
 * Clay Gunnels
 
 ## General Info
-* Tecnical Exercise for Demo Interview with Profisee
+* Technical Exercise for Demo Interview with Profisee
 * Due April 14, 2022 at 11 pm ET
 
 ## Setup
