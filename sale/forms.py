@@ -6,5 +6,5 @@ class Sale(forms.ModelForm):
 
 	class Meta:
 		model = Sale
-		fields = ['product' , 'salesperson' , 'customer' , 'salesDate']
+		fields = ['product' , 'customer' ,'date' , 'price' , 'salesperson' , 'salespersonCommission']
 

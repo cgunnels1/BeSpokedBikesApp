@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quarterly Salesperson Comission Report</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        li {
+          float: left;
+        }
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+
+        li a:hover {
+          background-color: #111;
+        }
+       </style>
+</head>
+<body>
+<ul>
+      <li><a class="active" href="/">Home</a></li>
+    <li><a class="active" href="/sales/">Sales</a></li>
+    <li><a class="active" href="/directory/">Staff</a></li>
+    </ul>
+<h1>View Salesperson Reports</h1>
+<table>
+        <tr>
+            <th>Salesperson</th>
+            <th>Date</th>
+            <th>Commission</th>
+        </tr>
+            {% for sale in sale_objects %}
+                <tr>
+                    <td>{{ sale.salesperson }}</td>
+                    <td>{{ sale.date }}</td>
+                    <td>{{ sale.salespersonCommission }}</td>
+                 </tr>
+            {% endfor %}
+    </table>
+</body>
+</html>

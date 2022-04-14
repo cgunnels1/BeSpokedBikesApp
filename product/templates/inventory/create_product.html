@@ -45,10 +45,11 @@
 <body>
     <ul>
       <li><a class="active" href="/">Home</a></li>
+        <li><a class="active" href="/inventory/">Inventory</a></li>
     </ul>
 <h1>Add Product</h1>
 
-    <form action="/directory/add/success/" method="post">
+    <form action="/inventory/add/success/" method="post">
         {% csrf_token %}
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>

@@ -1,69 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Sales</title>
-    <style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
+#myInput {
+  background-image: url('/media/images/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  background-size: 28px 28px;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-        li {
-          float: left;
-        }
-        li a {
-          display: block;
-          color: white;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-        }
+#myTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
 
-        li a:hover {
-          background-color: #111;
-        }
-       </style>
+#myTable th, #myTable td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 12px;
+}
+
+#myTable tr {
+  background-color: #dddddd;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
+
+
+
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
 </head>
 <body>
 <ul>
-      <li><a class="active" href="/">Home</a></li>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a class="active" href="/sales/create/">Add</a></li>
     </ul>
+<h2>Sales History</h2>
 
-<table>
-        <tr>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Dates.." title="Type in a date">
+
+<table id="myTable">
+        <tr class="header">
             <th>Product</th>
-            <th>Salesperson</th>
             <th>Customer</th>
-            <th>SalesDate</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Salesperson</th>
+            <th>Salesperson Commission</th>
         </tr>
             {% for sale in sale_objects %}
                 <tr>
                     <td>{{ sale.product }}</td>
-                    <td>{{ sale.salesperson }}</td>
                     <td>{{ sale.customer }}</td>
-                    <td>{{ sale.salesDate }}</td>
+                    <td>{{ sale.date }}</td>
+                    <td>{{ sale.price }}</td>
+                    <td>{{ sale.salesperson }}</td>
+                    <td>{{ sale.salespersonCommission }}</td>
                  </tr>
             {% endfor %}
-    </table>
+</table>
 
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 </body>
 </html>

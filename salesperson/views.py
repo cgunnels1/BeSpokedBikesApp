@@ -20,7 +20,7 @@ def edit_salesperson_view(request, id):
 
 def edit_success_view(request, id):
     salesperson = Salesperson.objects.get(pk=id)
-    # all_salesperson = Salesperson.objects.all()
+
     context = {}
     if request.method == 'POST':
         fname = request.POST.get('fname', None)
@@ -32,33 +32,16 @@ def edit_success_view(request, id):
         manager = request.POST.get('manager', None)
 
         person_query = Salesperson.objects.filter(firstName=fname, lastName=lname, startDate=startdate)
-        # print(temp.exists())
+
 
         if (salesperson.firstName == fname and salesperson.lastName == lname and str(salesperson.startDate) == str(startdate)):
-            print("true")
+
             context['error'] = 'Salesperson already exists'
             return render(request, 'directory/edit_failure.html', context)
         elif person_query.exists():
-            print("Query does exist")
+            #print("Query does exist")
             context['error'] = 'Salesperson already exists'
             return render(request, 'directory/edit_failure.html', context)
-
-        # elif (((Salesperson.objects.get(firstName=fname, lastName=lname)).firstName == fname
-        #      and (Salesperson.objects.get(firstName=fname, lastName=lname)).lastName == lname
-        #      and str((Salesperson.objects.get(firstName=fname, lastName=lname)).startDate) == str(startdate))
-        #         or (salesperson.firstName == fname and salesperson.lastName == lname and str(salesperson.startDate) == str(startdate)
-        #
-        #         )
-        # ):
-        # # if (((Salesperson.objects.get(firstName=fname, lastName=lname)).firstName == fname
-        # #         and (Salesperson.objects.get(firstName=fname, lastName=lname)).lastName == lname
-        # #         and str((Salesperson.objects.get(firstName=fname, lastName=lname)).startDate) == str(startdate))
-        # #     or (salesperson.firstName == fname and salesperson.lastName == lname and str(salesperson.startDate) == str(startdate)
-        # #
-        # #         )
-        # #     ):
-        #     context['error'] = 'Salesperson already exists'
-        #     return render(request, 'directory/edit_failure.html', context)
         else:
             salesperson.firstName = fname
             salesperson.lastName = lname
@@ -76,6 +59,7 @@ def add_salesperson_view(request):
     context = {}
     return render(request, 'directory/create_salesperson.html', context)
 
+#Cannot create new salesperson if firstName, lastName and startDate are the same as a pre-existing salesperson
 def add_salesperson_success_view(request):
     context = {}
     if request.method == 'POST':
@@ -100,7 +84,3 @@ def add_salesperson_success_view(request):
 
     return render(request, 'directory/add_success.html', context)
 
-
-def salesperson_commision_report_view(request):
-    context = {}
-    return render(request, 'directory/commission_report.html', context)
