@@ -40,31 +40,29 @@
         li a:hover {
           background-color: #111;
         }
-       </style>
+
+    </style>
 </head>
 <body>
-    <ul>
-      <li><a class="active" href="/">Home</a></li>
-    </ul>
+<ul>
+    <li><a class="active" href="/">Home</a></li>
+</ul>
 <table>
-        <tr>
-            <th>Product</th>
-            <th>Begin Date</th>
-            <th>End Date</th>
-            <th>Discount Percentage</th>
-        </tr>
-            {% for discount in discount_objects %}
-                <tr>
-                    <td>{{ discount.product }}</td>
-                    <td>{{ discount.beginDate }}</td>
-                    <td>{{ discount.endDate }}</td>
-                    <td>{{ discount.discountPercentage }}</td>
-                 </tr>
-            {% endfor %}
-    </table>
-
-
-
+    <tr>
+        <th>Product</th>
+        <th>Begin Date</th>
+        <th>End Date</th>
+        <th>Discount Percentage</th>
+    </tr>
+    {% for discount in discount_objects %}
+    <tr>
+        <td>{{ discount.product }}</td>
+        <td>{{ discount.beginDate }}</td>
+        <td>{{ discount.endDate }}</td>
+        <td>{{ discount.discountPercentage }}</td>
+    </tr>
+    {% endfor %}
+</table>
 
 
 </body>

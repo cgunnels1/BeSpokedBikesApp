@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
 * {
   box-sizing: border-box;
 }
@@ -66,36 +66,37 @@ li a:hover {
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
 }
-</style>
+
+    </style>
 </head>
 <body>
 <ul>
     <li><a class="active" href="/">Home</a></li>
     <li><a class="active" href="/sales/create/">Add</a></li>
-    </ul>
+</ul>
 <h2>Sales History</h2>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Dates.." title="Type in a date">
 
 <table id="myTable">
-        <tr class="header">
-            <th>Product</th>
-            <th>Customer</th>
-            <th>Date</th>
-            <th>Price</th>
-            <th>Salesperson</th>
-            <th>Salesperson Commission</th>
-        </tr>
-            {% for sale in sale_objects %}
-                <tr>
-                    <td>{{ sale.product }}</td>
-                    <td>{{ sale.customer }}</td>
-                    <td>{{ sale.date }}</td>
-                    <td>{{ sale.price }}</td>
-                    <td>{{ sale.salesperson }}</td>
-                    <td>{{ sale.salespersonCommission }}</td>
-                 </tr>
-            {% endfor %}
+    <tr class="header">
+        <th>Product</th>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Salesperson</th>
+        <th>Salesperson Commission</th>
+    </tr>
+    {% for sale in sale_objects %}
+    <tr>
+        <td>{{ sale.product }}</td>
+        <td>{{ sale.customer }}</td>
+        <td>{{ sale.date }}</td>
+        <td>{{ sale.price }}</td>
+        <td>{{ sale.salesperson }}</td>
+        <td>{{ sale.salespersonCommission }}</td>
+    </tr>
+    {% endfor %}
 </table>
 
 <script>
@@ -117,6 +118,7 @@ function myFunction() {
     }
   }
 }
+
 </script>
 
 </body>

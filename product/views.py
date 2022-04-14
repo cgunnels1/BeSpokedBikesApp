@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Product
 
+
 # Create your views here.
 def list_all_products_view(request):
     product_objects = Product.objects.all()
@@ -9,6 +10,7 @@ def list_all_products_view(request):
     }
     return render(request, 'inventory/products.html', context)
 
+
 def edit_product_view(request, id):
     product_objects = Product.objects.get(pk=id)
     context = {
@@ -16,11 +18,11 @@ def edit_product_view(request, id):
     }
     return render(request, 'inventory/edit_product.html', context)
 
+
 def edit_success_view(request, id):
     product = Product.objects.get(pk=id)
     context = {}
     if request.method == 'POST':
-        #'name' , 'manufacturer' , 'style' , 'purchase_price' , 'sale_price' , 'quantity_on_hand' , 'commission_percentage'
         name = request.POST.get('name', None)
         manufacturer = request.POST.get('manufacturer', None)
         style = request.POST.get('style', None)
@@ -29,14 +31,13 @@ def edit_success_view(request, id):
         quantity_on_hand = request.POST.get('quantity_on_hand', None)
         commission_percentage = request.POST.get('commission_percentage', None)
 
-        # product_query = Product.objects.filter(name=name, manufacturer=manufacturer, style=style)
         product_query = Product.objects.filter(name=name)
-        # if (product.name == name and product.manufacturer == manufacturer and product.style == style):
+
         if (product.name == name):
-            if str(product.sale_price) != str(sale_price) or str(product.quantity_on_hand) != str(quantity_on_hand) or str(product.commission_percentage) != str(commission_percentage):
+            if str(product.sale_price) != str(sale_price) or str(product.quantity_on_hand) != str(
+                    quantity_on_hand) or str(product.commission_percentage) != str(commission_percentage):
                 print()
             else:
-                # print("Already exists1")
                 context['error'] = 'Product already exists'
                 return render(request, 'inventory/edit_failure.html', context)
         elif product_query.exists():
@@ -53,14 +54,15 @@ def edit_success_view(request, id):
         product.commission_percentage = commission_percentage
         product.save()
 
-
     return render(request, 'inventory/edit_success.html', context)
+
 
 def add_product_view(request):
     context = {}
     return render(request, 'inventory/create_product.html', context)
 
-#Cannot add new product if new product has the same name as pre-existing product
+
+# Cannot add new product if new product has the same name as pre-existing product
 def add_product_success_view(request):
     context = {}
     if request.method == 'POST':
@@ -81,9 +83,8 @@ def add_product_success_view(request):
             return render(request, 'inventory/edit_failure.html', context)
         except:
             product = Product.objects.create(name=name, manufacturer=manufacturer, style=style,
-                                                         purchase_price=purchase_price, sale_price=sale_price,
-                                                         quantity_on_hand=quantity_on_hand, commission_percentage=commission_percentage)
-
-
+                                             purchase_price=purchase_price, sale_price=sale_price,
+                                             quantity_on_hand=quantity_on_hand,
+                                             commission_percentage=commission_percentage)
 
     return render(request, 'inventory/add_success.html', context)

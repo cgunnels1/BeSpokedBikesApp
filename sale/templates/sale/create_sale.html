@@ -40,42 +40,40 @@
         li a:hover {
           background-color: #111;
         }
-       </style>
+
+    </style>
 </head>
 <body>
 <ul>
-      <li><a class="active" href="/">Home</a></li>
+    <li><a class="active" href="/">Home</a></li>
     <li><a class="active" href="/sales/">View Sales</a></li>
 
-    </ul>
+</ul>
 <h1>Create Sale</h1>
 
-    <form action="/sales/create/success/" method="post">
-        {% csrf_token %}
+<form action="/sales/create/success/" method="post">
+    {% csrf_token %}
 
-        <label for="product">Product:</label>
-        <input type="text" id="product" name="product" required><br><br>
+    <label for="product">Product:</label>
+    <input type="text" id="product" name="product" required><br><br>
 
-        <label for="customer">Customer:</label>
-        <input type="text" id="customer" name="customer" required><br><br>
+    <label for="customer">Customer:</label>
+    <input type="text" id="customer" name="customer" required><br><br>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required><br><br>
 
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required><br><br>
+    <label for="price">Price:</label>
+    <input type="text" id="price" name="price" required><br><br>
 
-        <label for="salesperson">Salesperson:</label>
-        <input type="text" id="salesperson" name="salesperson" required><br><br>
+    <label for="salesperson">Salesperson:</label>
+    <input type="text" id="salesperson" name="salesperson" required><br><br>
 
-        <label for="salespersonCommission">Salesperson Commission:</label>
-        <input type="text" id="salespersonCommission" name="salespersonCommission" required><br><br>
+    <label for="salespersonCommission">Salesperson Commission:</label>
+    <input type="text" id="salespersonCommission" name="salespersonCommission" required><br><br>
 
-        <input type="submit" value="Submit">
-    </form>
-
-
-
+    <input type="submit" value="Submit">
+</form>
 
 
 </body>

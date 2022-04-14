@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Discount(models.Model):
@@ -10,5 +11,3 @@ class Discount(models.Model):
 
     def __str__(self):
         return self.product
-
-    #'product', 'beginDate', 'endDate', 'discountPercentage'

@@ -40,44 +40,42 @@
         li a:hover {
           background-color: #111;
         }
-       </style>
+
+    </style>
 </head>
 <body>
-    <ul>
-      <li><a class="active" href="/">Home</a></li>
-        <li><a class="active" href="add/">Add</a></li>
-    </ul>
+<ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a class="active" href="add/">Add</a></li>
+</ul>
 <table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Start Date</th>
-            <th>Termination Date</th>
-            <th>Manager</th>
-        </tr>
-            {% for salesperson in salesperson_objects %}
-                <tr>
-                    <td>{{ salesperson.firstName }}</td>
-                    <td>{{ salesperson.lastName }}</td>
-                    <td>{{ salesperson.address }}</td>
-                    <td>{{ salesperson.phoneNumber }}</td>
-                    <td>{{ salesperson.startDate }}</td>
-                    <td>{{ salesperson.terminationDate }}</td>
-                    <td>{{ salesperson.manager }}</td>
-                    <td>
-                        <form action="{{ salesperson.id }}/edit/" method ="post">
-                            {% csrf_token %}
-                            <input type="submit" name="button" value="edit">
-                        </form>
-                    </td>
-                 </tr>
-            {% endfor %}
-    </table>
-
-
-
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Start Date</th>
+        <th>Termination Date</th>
+        <th>Manager</th>
+    </tr>
+    {% for salesperson in salesperson_objects %}
+    <tr>
+        <td>{{ salesperson.firstName }}</td>
+        <td>{{ salesperson.lastName }}</td>
+        <td>{{ salesperson.address }}</td>
+        <td>{{ salesperson.phoneNumber }}</td>
+        <td>{{ salesperson.startDate }}</td>
+        <td>{{ salesperson.terminationDate }}</td>
+        <td>{{ salesperson.manager }}</td>
+        <td>
+            <form action="{{ salesperson.id }}/edit/" method="post">
+                {% csrf_token %}
+                <input type="submit" name="button" value="edit">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
 
 
 </body>

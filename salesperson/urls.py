@@ -10,5 +10,4 @@ urlpatterns = [
     path('add/', views.add_salesperson_view),
     path('add/success/', views.add_salesperson_success_view),
 
-
 ]

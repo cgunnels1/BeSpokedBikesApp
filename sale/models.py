@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Sale(models.Model):
     product = models.CharField(max_length=50)
@@ -12,4 +13,4 @@ class Sale(models.Model):
     def __str__(self):
         return self.product
 
-#Product, Customer, Date, Price, Salesperson, and Salesperson Commission.
+# Product, Customer, Date, Price, Salesperson, and Salesperson Commission.
